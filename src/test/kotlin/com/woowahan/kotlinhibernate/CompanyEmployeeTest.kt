@@ -34,7 +34,7 @@ internal class CompanyEmployeeTest @Autowired constructor(
 
     @Test
     internal fun findByIdCompany() {
-        var company = companyJpaRepository.findByIdOrNull(1L)
+        val company = companyJpaRepository.findByIdOrNull(1L)
 
         assert(company!!.id == 1L)
         assert(company.name == "heebong-pany")
