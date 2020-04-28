@@ -1,6 +1,6 @@
 package com.woowahan.kotlinhibernate
 
-import junit.framework.Assert.assertEquals
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
@@ -10,8 +10,8 @@ import org.springframework.data.repository.findByIdOrNull
 
 @DataJpaTest
 internal class CompanyEmployeeTest @Autowired constructor(
-        val companyJpaRepository: CompanyJpaRepository,
-        val employeeJpaRepository: EmployeeJpaRepository
+    val companyJpaRepository: CompanyJpaRepository,
+    val employeeJpaRepository: EmployeeJpaRepository
 ) {
 
     @Test
@@ -30,7 +30,6 @@ internal class CompanyEmployeeTest @Autowired constructor(
         log.info("company : $company")
 
     }
-
 
     @Test
     internal fun findByIdCompany() {

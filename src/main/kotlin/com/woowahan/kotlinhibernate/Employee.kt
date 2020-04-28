@@ -12,14 +12,14 @@ import javax.persistence.OneToOne
 
 @Entity
 class Employee(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long?,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long?,
 
-        val name: String,
+    val name: String,
 
-        @OneToOne(fetch = FetchType.LAZY)
-        var company: Company?
+    @OneToOne(fetch = FetchType.LAZY)
+    var company: Company?
 ) {
     override fun toString() = kotlinToString(properties = toStringProperties)
 
@@ -27,12 +27,11 @@ class Employee(
 
     override fun hashCode() = kotlinHashCode(properties = equalsAndHashCodeProperties)
 
-
     companion object {
         private val equalsAndHashCodeProperties = arrayOf(Employee::id)
         private val toStringProperties = arrayOf(
-                Employee::id,
-                Employee::name
+            Employee::id,
+            Employee::name
         )
     }
 }
