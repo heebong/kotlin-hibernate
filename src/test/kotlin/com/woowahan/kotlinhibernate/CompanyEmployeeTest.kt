@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.data.repository.findByIdOrNull
 
-
 @DataJpaTest
 internal class CompanyEmployeeTest @Autowired constructor(
     val companyJpaRepository: CompanyJpaRepository,
@@ -16,19 +15,40 @@ internal class CompanyEmployeeTest @Autowired constructor(
 
     @Test
     internal fun findById() {
+        // when
         val employee = employeeJpaRepository.findByIdOrNull(1L)
-        log.info("1")
+
+        // then
+        assertEquals(employee!!.id, 1L)     // break point
+        assertEquals(employee.name, "고길동")
+    }
+
+    @Test
+    internal fun `findById - lazy loading`() {
+        // when
+        val employee = employeeJpaRepository.findByIdOrNull(1L)
+
+        // then
+        log.info("employee 데이터를 조회한 이후")
         assertEquals(employee!!.id, 1L)
-        log.info("2")
-        assertEquals(employee.name, "희봉")
-        log.info("3")
-        val company = employee.company
-        assertEquals(company!!.name, "heebong-pany")
-        log.info("4")
+        assertEquals(employee.name, "고길동")
 
-        log.info("employee : $employee")
-        log.info("company : $company")
+        log.info("company 데이터에 접근하기 전")
+        assertEquals(employee.company!!.name, "a-company")
 
+        log.info("company 데이터에 접근한 후")
+    }
+
+    @Test
+    internal fun findAllById() {
+        // given
+        val employeeIds = listOf(1L, 2L, 3L, 4L)
+
+        // when
+        val employees = employeeJpaRepository.findAllById(employeeIds)
+
+        // then
+        log.info("result: $employees")
     }
 
     @Test

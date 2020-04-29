@@ -14,7 +14,7 @@ class Company(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id: Long? = null,
 
-    val name: String
+    var name: String
 ) {
     override fun toString() = kotlinToString(properties = toStringProperties)
 
