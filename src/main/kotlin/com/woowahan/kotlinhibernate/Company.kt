@@ -10,24 +10,23 @@ import javax.persistence.Id
 
 @Entity
 class Company(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long? = null,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
 
-        val name: String
+    var name: String
 ) {
-        override fun toString() = kotlinToString(properties = toStringProperties)
+    override fun toString() = kotlinToString(properties = toStringProperties)
 
-        override fun equals(other: Any?) = kotlinEquals(other = other, properties = equalsAndHashCodeProperties)
+    override fun equals(other: Any?) = kotlinEquals(other = other, properties = equalsAndHashCodeProperties)
 
-        override fun hashCode() = kotlinHashCode(properties = equalsAndHashCodeProperties)
+    override fun hashCode() = kotlinHashCode(properties = equalsAndHashCodeProperties)
 
-
-        companion object {
-                private val equalsAndHashCodeProperties = arrayOf(Company::id)
-                private val toStringProperties = arrayOf(
-                        Company::id,
-                        Company::name
-                )
-        }
+    companion object {
+        private val equalsAndHashCodeProperties = arrayOf(Company::id)
+        private val toStringProperties = arrayOf(
+            Company::id,
+            Company::name
+        )
+    }
 }

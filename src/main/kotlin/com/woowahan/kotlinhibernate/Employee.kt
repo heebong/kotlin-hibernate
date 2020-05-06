@@ -8,18 +8,18 @@ import javax.persistence.FetchType
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
 import javax.persistence.Id
-import javax.persistence.OneToOne
+import javax.persistence.ManyToOne
 
 @Entity
 class Employee(
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long?,
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    var id: Long? = null,
 
-        val name: String,
+    var name: String,
 
-        @OneToOne(fetch = FetchType.LAZY)
-        var company: Company?
+    @ManyToOne(fetch = FetchType.LAZY)
+    var company: Company?
 ) {
     override fun toString() = kotlinToString(properties = toStringProperties)
 
@@ -27,12 +27,11 @@ class Employee(
 
     override fun hashCode() = kotlinHashCode(properties = equalsAndHashCodeProperties)
 
-
     companion object {
         private val equalsAndHashCodeProperties = arrayOf(Employee::id)
         private val toStringProperties = arrayOf(
-                Employee::id,
-                Employee::name
+            Employee::id,
+            Employee::name
         )
     }
 }
