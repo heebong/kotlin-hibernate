@@ -8,7 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.data.repository.findByIdOrNull
 
 @DataJpaTest
-internal class CompanyEmployeeTest @Autowired constructor(
+internal class CompanyEmployeeRepositoryTest @Autowired constructor(
     val companyJpaRepository: CompanyJpaRepository,
     val employeeJpaRepository: EmployeeJpaRepository
 ) {
@@ -70,6 +70,6 @@ internal class CompanyEmployeeTest @Autowired constructor(
     }
 
     companion object {
-        private val log = LoggerFactory.getLogger(CompanyEmployeeTest::class.toString())
+        private val log = LoggerFactory.getLogger(CompanyEmployeeRepositoryTest::class.toString())
     }
 }

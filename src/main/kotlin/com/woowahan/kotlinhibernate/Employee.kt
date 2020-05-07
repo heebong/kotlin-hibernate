@@ -21,6 +21,8 @@ class Employee(
     @ManyToOne(fetch = FetchType.LAZY)
     var company: Company?
 ) {
+    fun getCompanyName() = company?.name ?: ""
+
     override fun toString() = kotlinToString(properties = toStringProperties)
 
     override fun equals(other: Any?) = kotlinEquals(other = other, properties = equalsAndHashCodeProperties)
