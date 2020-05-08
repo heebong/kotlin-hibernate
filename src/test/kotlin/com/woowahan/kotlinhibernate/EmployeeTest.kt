@@ -14,9 +14,9 @@ internal class EmployeeTest {
     @Test
     fun `toString - 연관되어있는 객체는 노출되지 않는다`() {
         // given
-        val company = Company(name = "company")
+        val company = Company(name = "heebongpany")
 
-        val employee = Employee(id = 10L, name = "emp", company = company)
+        val employee = Employee(id = 10L, name = "heebong", company = company)
 
         // expect
         assertEquals(employee.toString(), "Employee(id=${employee.id}, name=${employee.name})")
@@ -27,8 +27,8 @@ internal class EmployeeTest {
         // given
         val employeeId = 1L
 
-        val employee1 = Employee(employeeId, "emp1", null)
-        val employee2 = Employee(employeeId, "emp2", null)
+        val employee1 = Employee(employeeId, "hee", null)
+        val employee2 = Employee(employeeId, "bong", null)
 
         // expect
         assertEquals(employee1, employee2)

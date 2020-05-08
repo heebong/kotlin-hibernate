@@ -19,8 +19,8 @@ internal class CompanyTest {
         // given
         val companyId = 1L
 
-        val company1 = Company(id = companyId, name = "company1")
-        val company2 = Company(id = companyId, name = "company2")
+        val company1 = Company(id = companyId, name = "heebongpany1")
+        val company2 = Company(id = companyId, name = "heebongpany2")
 
         // expect
         assertEquals(company1, company2)

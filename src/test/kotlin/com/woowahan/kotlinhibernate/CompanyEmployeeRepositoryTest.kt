@@ -56,7 +56,7 @@ internal class CompanyEmployeeRepositoryTest @Autowired constructor(
         val company = companyJpaRepository.findByIdOrNull(1L)
 
         assert(company!!.id == 1L)
-        assert(company.name == "heebong-pany")
+        assert(company.name == "a-company")
     }
 
     @Test
